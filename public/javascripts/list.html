@@ -5,6 +5,8 @@
     <th>Project</th>
     <th>Description</th>
     <th><a href="#/new"><i class="icon-plus-sign"></i>add</a></th>
+    <th><a href="" ng-click="call()"><i class="icon-plus-sign"></i>{{buttonCall}}</a></th>
+
   </tr>
   </thead>
   <tbody>
@@ -12,7 +14,7 @@
     <td><a ng-href="{{project.site}}" target="_blank">{{project.name}}</a></td>
     <td>{{project.description}}</td>
     <td>
-      <a ng-href="#/edit/{{project.$id}}"><i class="icon-pencil"></i></a>
+      <a ng-href="#/edit/{{project.$id}}"><i class="icon-pencil"></i>edit </a>
     </td>
   </tr>
   </tbody>
