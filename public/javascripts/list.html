@@ -1,21 +1,27 @@
 <input type="text" ng-model="search" class="search-query" placeholder="Search">
 <table>
-  <thead>
-  <tr>
-    <th>Project</th>
-    <th>Description</th>
-    <th><a href="#/new"><i class="icon-plus-sign"></i>add</a></th>
-    <th><a href="" ng-click="call()"><i class="icon-plus-sign"></i>{{buttonCall}}</a></th>
+    <thead>
+    <tr>
+        <th>Project</th>
+        <th>Description</th>
+        <th><a href="#/new"><i class="icon-plus-sign"></i>add</a></th>
+        <th>
 
-  </tr>
-  </thead>
-  <tbody>
-  <tr ng-repeat="project in projects | filter:search | orderBy:'name'">
-    <td><a ng-href="{{project.site}}" target="_blank">{{project.name}}</a></td>
-    <td>{{project.description}}</td>
-    <td>
-      <a ng-href="#/edit/{{project.$id}}"><i class="icon-pencil"></i>edit </a>
-    </td>
-  </tr>
-  </tbody>
+          <a href="" ng-click="phone.call();" ng-show="phone.isIdle()" class="btn btn-primary"><i class="icon-plus-sign"></i>Call</a>
+
+          <a href="" ng-click="phone.release();" ng-show="!phone.isIdle()" class="btn btn-danger"><i class="icon-plus-sign"></i>End</a>
+
+        </th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr ng-repeat="project in projects | filter:search | orderBy:'name'">
+        <td><a ng-href="{{project.site}}" target="_blank">{{project.name}}</a></td>
+        <td>{{project.description}}</td>
+        <td>
+          <a ng-href="#/edit/{{project.$id}}"><i class="icon-pencil"></i>edit </a>
+        </td>
+    </tr>
+    </tbody>
 </table>
