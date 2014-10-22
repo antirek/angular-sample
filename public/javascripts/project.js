@@ -1,12 +1,6 @@
-angular.module('project', ['ngRoute', 'firebase'])
+angular.module('project', ['ngRoute'])
  
-.value('fbURL', 'https://angularjs-projects.firebaseio.com/')
- 
-.factory('Projects', function($firebase, fbURL) {
-  return $firebase(new Firebase(fbURL)).$asArray();
-})
-
-.service('Phone', function(){
+.factory('Phone', function(){
 
     var phone = function(){
         this.STATUS_IDLE  = 'idle';
@@ -42,10 +36,7 @@ angular.module('project', ['ngRoute', 'firebase'])
     });
 })
  
-.controller('ListCtrl', function($scope, Projects, Phone) {
-
-    $scope.projects = Projects;
+.controller('ListCtrl', function($scope, Phone) {
     
-    var phone = new Phone();
-    $scope.phone = phone;
+    $scope.phone = new Phone();
 })
